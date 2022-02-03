@@ -1,6 +1,6 @@
-import { actionTypesInterface } from "../../interfaces/actionTypesInterface";
+import { Actions } from "../../interfaces/actionTypesInterface";
 
-export const postActionTypes: actionTypesInterface = {
+export const postActionTypes: Actions = {
     LOAD_POST: 'LOAD_POST',
     DELETE_POST: 'DELETE_POST',
 }
