@@ -9,7 +9,7 @@ declare global {
     }
   }
   
-  export default function configureStore(initialState:Array<Post>) {
+  export function postsStore(initialState:Array<Post> = []) {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     || compose;
     return createStore(
@@ -19,7 +19,6 @@ declare global {
     );
   }
   
-  export const store = configureStore([]);
-  export type RootState = typeof store.getState
+  const store = postsStore();
   export type AppDispatch = typeof store.dispatch
   
