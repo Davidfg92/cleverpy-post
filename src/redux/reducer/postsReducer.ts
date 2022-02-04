@@ -13,5 +13,6 @@ export function postsReducer(state:Array<Post> = [], action: AnyAction) {
         newState = state;
         break;
     }
+    console.log('new state', newState)
     return newState;
   }
