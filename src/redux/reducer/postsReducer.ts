@@ -8,11 +8,16 @@ export function postsReducer(state:Array<Post> = [], action: AnyAction) {
       case postActionTypes.LOAD_POST:
         newState = action.payload;
         break;
+      
+      case postActionTypes.DELETE_POST:
+        newState = state.filter((elem:Post) => elem.id !== action.payload);
+        break;
+        
   
       default:
         newState = state;
         break;
     }
-    console.log('new state', newState)
+    
     return newState;
   }
