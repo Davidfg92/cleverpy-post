@@ -21,10 +21,10 @@ export function List() {
       <h1 className="title">Posts</h1>
       <div className="list">
       {posts.map((post) => 
-        <div className="cardBox">
+        <div key={post.id} className="cardBox">
           <div className="card">
             <div className="card__front">
-              <p className="card__title" key={post.id}>{post.title}</p>
+              <p className="card__title">{post.title}</p>
             </div>
             <div className="card__back">
               <button onClick={() => handleDelete(post.id)} className="card__delete">X</button>
