@@ -1,0 +1,74 @@
+@font-face {
+    font-family: 'nixie';
+    src: url(../../fonts/NixieOne.ttf);
+  }
+
+.cardBox{
+    border: rgba(228, 0, 198, 0.089) 1px solid;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgba(172, 172, 172, 0.377);
+    width: 200px;
+    transition: all 0.3s ease 0s;
+    perspective: 800px;
+  }
+  
+  .cardBox:hover .card {
+    transform: rotateY(180deg);
+  }
+  
+  .card {
+    position: relative;
+    height: 300px;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease 0s;
+    width: 100%;
+  
+    &__front, &__back {
+      font-family: nixie;
+      backface-visibility: hidden;
+      box-sizing: border-box;
+      display: block;
+      height: 100%;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+    }
+  
+    &__delete {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  
+    &__edit {
+      cursor: pointer;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  
+    &__title {
+      padding: 80px 0 0 0;
+    }
+  
+    &__back {
+      transform: rotateY( 180deg);
+      padding: 10px 5px 0 5px;
+    }
+  
+    &__userid, &__body {
+      text-decoration: none;
+      border-radius: 1px;
+      transition: all 0.2s ease 0s;
+  
+      &--textarea {
+        height: 150px;
+      }
+    }
+  
+    &__userid:hover, &__body:hover {
+    text-shadow: 0 0 1px #333;
+    }
+  }
