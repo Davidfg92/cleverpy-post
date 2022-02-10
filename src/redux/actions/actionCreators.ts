@@ -1,8 +1,9 @@
-import axios from 'axios';
-import { postActionTypes } from './actionTypes';
-import { AppDispatch } from '../store';
+import axios from "axios";
+import { postActionTypes } from "./actionTypes";
+import { AppDispatch } from "../store";
+import { Post } from "../../interfaces/postInterface";
 
-const apiUrl = 'https://jsonplaceholder.typicode.com/posts'
+const apiUrl = "https://jsonplaceholder.typicode.com/posts";
 
 export function loadPosts() {
   return async (dispatch: AppDispatch) => {
@@ -14,11 +15,20 @@ export function loadPosts() {
   };
 }
 
-export function deletePost(id:number) {
-   return async (dispatch: AppDispatch) => {
-     dispatch({
-       type: postActionTypes.DELETE_POST,
-       payload: id,
-     })
-   }
+export function deletePost(id: number) {
+  return async (dispatch: AppDispatch) => {
+    dispatch({
+      type: postActionTypes.DELETE_POST,
+      payload: id,
+    });
+  };
+}
+
+export function editPost(post: Post) {
+  return async (dispatch: AppDispatch) => {
+    dispatch({
+      type: postActionTypes.EDIT_POST,
+      payload: post,
+    });
+  };
 }
