@@ -1,23 +1,30 @@
 @font-face {
-  font-family: 'neuropol';
-  src: url(../../fonts/neuropol.ttf);
+  font-family: "diogenes";
+  src: url(../../fonts/DIOGENES.ttf);
 }
 
-
-
 .title {
-  font-family: neuropol;
+  font-family: diogenes;
+  text-transform: uppercase;
+  font-size: 40px;
+  letter-spacing: 5px;
   margin: 15px 0;
+}
+
+.search {
+  padding-bottom: 20px;
+
+  &__input {
+    height: 30px;
+  }
 }
 
 .list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 15px;
   margin: 0 auto;
   max-width: 1500px;
-  padding: 0 10px 5px 10px;
+  padding: 0 10px 60px 10px;
 }
-
-
