@@ -1,74 +1,135 @@
 @font-face {
-    font-family: 'nixie';
-    src: url(../../fonts/NixieOne.ttf);
+  font-family: "romanus";
+  src: url(../../fonts/ROMANUS.otf);
+}
+
+.cardBox {
+  border: rgba(228, 0, 198, 0.089) 1px solid;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgba(172, 172, 172, 0.377);
+  width: 200px;
+  transition: all 0.3s ease 0s;
+  perspective: 800px;
+}
+
+.cardBox:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card {
+  position: relative;
+  height: 300px;
+  transform-style: preserve-3d;
+  transition: transform 0.4s ease 0s;
+  width: 100%;
+
+  &__front,
+  &__back {
+    font-family: romanus;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    width: 100%;
   }
 
-.cardBox{
-    border: rgba(228, 0, 198, 0.089) 1px solid;
-    border-top-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    background-color: rgba(172, 172, 172, 0.377);
-    width: 200px;
-    transition: all 0.3s ease 0s;
-    perspective: 800px;
+  &__delete {
+    font-family: romanus;
+    font-size: 15px;
+    font-weight: 1000;
+    cursor: pointer;
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    top: 2px;
+    right: 2px;
+    box-shadow: -0.1px 0.1px 5px;
+    border-top-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border: 1px solid rgba(172, 172, 172, 0.377);
+    background-color: rgb(255, 226, 251);
   }
-  
-  .cardBox:hover .card {
+
+  &__edit {
+    font-family: romanus;
+    font-size: 15px;
+    font-weight: 1000;
+    cursor: pointer;
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    height: 20px;
+    width: 40px;
+    box-shadow: 0.1px -0.1px 5px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border: 1px solid rgba(172, 172, 172, 0.377);
+    background-color: rgb(255, 226, 251);
+  }
+
+  &__title {
+    padding: 80px 0 0 0;
+    font-size: 25px;
+  }
+
+  &__back {
     transform: rotateY(180deg);
+    padding: 10px 5px 0 5px;
   }
-  
-  .card {
+
+  &__userid,
+  &__body {
+    margin-top: 30px;
+    text-decoration: none;
+    border-radius: 1px;
+    transition: all 0.2s ease 0s;
+
+    &--textarea {
+      font-family: romanus;
+      height: 150px;
+      box-shadow: -0.1px 0.1px 5px;
+      border-radius: 3px;
+      border: 1px solid rgba(172, 172, 172, 0.377);
+      background-color: rgb(255, 226, 251);
+      overflow: auto;
+    }
+  }
+
+  &__cancel {
+    font-family: romanus;
+    font-size: 15px;
+    font-weight: 1000;
     position: relative;
-    height: 300px;
-    transform-style: preserve-3d;
-    transition: transform 0.4s ease 0s;
-    width: 100%;
-  
-    &__front, &__back {
-      font-family: nixie;
-      backface-visibility: hidden;
-      box-sizing: border-box;
-      display: block;
-      height: 100%;
-      position: absolute;
-      text-align: center;
-      width: 100%;
-    }
-  
-    &__delete {
-      cursor: pointer;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-  
-    &__edit {
-      cursor: pointer;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-    }
-  
-    &__title {
-      padding: 80px 0 0 0;
-    }
-  
-    &__back {
-      transform: rotateY( 180deg);
-      padding: 10px 5px 0 5px;
-    }
-  
-    &__userid, &__body {
-      text-decoration: none;
-      border-radius: 1px;
-      transition: all 0.2s ease 0s;
-  
-      &--textarea {
-        height: 150px;
-      }
-    }
-  
-    &__userid:hover, &__body:hover {
-    text-shadow: 0 0 1px #333;
-    }
+    cursor: pointer;
+    width: 60px;
+    box-shadow: -0.1px 0.1px 5px;
+    border-radius: 3px;
+    border: 1px solid rgba(172, 172, 172, 0.377);
+    background-color: rgb(255, 226, 251);
   }
+
+  &__apply {
+    font-family: romanus;
+    font-size: 15px;
+    font-weight: 1000;
+    cursor: pointer;
+    position: relative;
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 60px;
+    box-shadow: -0.1px 0.1px 5px;
+    border-radius: 3px;
+    border: 1px solid rgba(172, 172, 172, 0.377);
+    background-color: rgb(255, 226, 251);
+  }
+
+  &__userid:hover,
+  &__body:hover {
+    text-shadow: 0 0 1px #333;
+  }
+}
