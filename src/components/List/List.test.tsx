@@ -13,7 +13,7 @@ describe("List component", () => {
         <List posts={[]} />;
       </Provider>
     );
-    expect(screen.getByText("Posts")).toBeInTheDocument();
+    expect(screen.getByText("prueba tecnica cleverpy")).toBeInTheDocument();
   });
 
   test("renders posts array given by props", () => {

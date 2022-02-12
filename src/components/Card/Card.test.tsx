@@ -41,7 +41,7 @@ describe("Card component", () => {
     const textArea = screen.getByLabelText("Post text edit field");
     userEvent.clear(textArea);
     userEvent.type(textArea, "Hola");
-    userEvent.click(screen.getByText("Aceptar"));
+    userEvent.click(screen.getByText("Apply"));
     expect(editPostSpy).toHaveBeenCalledWith({
       body: "Hola",
       id: 1,
@@ -61,7 +61,7 @@ describe("Card component", () => {
     const textArea = screen.getByLabelText("Post text edit field");
     userEvent.clear(textArea);
     userEvent.type(textArea, "Hola");
-    userEvent.click(screen.getByText("Cancelar"));
+    userEvent.click(screen.getByText("Cancel"));
     expect(screen.getByText(post.body)).toBeInTheDocument();
   });
 });
