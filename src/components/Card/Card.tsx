@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Post } from "../../interfaces/postInterface";
 import {
   loadPosts,
@@ -8,8 +8,11 @@ import {
 } from "../../redux/actions/actionCreators";
 import "./Card.scss";
 
-// @ts-ignore
-export function Card({ post }) {
+export type CardProps = {
+  post: Post;
+};
+
+export const Card = ({ post }: CardProps) => {
   const dispatch = useDispatch();
   const [inputBody, setInputBody] = useState(post.body);
   const [isEditing, setIsEditing] = useState<boolean>(false);
@@ -30,8 +33,8 @@ export function Card({ post }) {
 
   const handleChange = () => {
     setIsEditing(false);
-    setInputBody(post.body)
-  }
+    setInputBody(post.body);
+  };
 
   return (
     <div className="cardBox">
@@ -46,7 +49,7 @@ export function Card({ post }) {
           >
             X
           </button>
-          <p className="card__userid">{post.userId}</p>
+          <p className="card__userid">Author: {post.userId}</p>
           {isEditing === false ? (
             <>
               <button onClick={() => setIsEditing(true)} className="card__edit">
@@ -57,21 +60,23 @@ export function Card({ post }) {
           ) : (
             <form onSubmit={(ev) => handleEdit(ev)}>
               <textarea
+                aria-label={"Post text edit field"}
                 onChange={(ev) => setInputBody(ev.target.value)}
                 className="card__body card__body--textarea"
                 value={inputBody}
               ></textarea>
               <button
+                className="card__cancel"
                 type="button"
                 onClick={handleChange}
               >
-                Cancelar
+                Cancel
               </button>
-              <button>Aceptar</button>
+              <button className="card__apply">Apply</button>
             </form>
           )}
         </div>
       </div>
     </div>
   );
-}
+};
