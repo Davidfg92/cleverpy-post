@@ -1,9 +1,18 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render } from "@testing-library/react";
+import App from "./App";
+import { Provider } from "react-redux";
+import { postsStore } from "./redux/store";
+import * as actions from "./redux/actions/actionCreators";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("React App", () => {
+  test("renders learn react link", () => {
+    const loadPostsSpy = jest.spyOn(actions, "loadPosts");
+    render(
+      <Provider store={postsStore()}>
+        <App />
+      </Provider>
+    );
+    expect(loadPostsSpy).toHaveBeenCalledTimes(1);
+  });
 });
